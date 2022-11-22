@@ -13,7 +13,7 @@ def forge_rc5(field, control, address, command):
 async def test_7seg(dut):
     dut._log.info("start")
     clock = Clock(dut.clk, 1.778, units="ms")
-    cocotb.fork(clock.start())
+    cocotb.start_soon(clock.start())
     
     dut._log.info("reset")
     dut.rst.value = 1
